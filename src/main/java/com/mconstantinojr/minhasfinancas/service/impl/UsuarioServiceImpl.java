@@ -1,5 +1,7 @@
 package com.mconstantinojr.minhasfinancas.service.impl;
 
+
+
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,6 +57,14 @@ public class UsuarioServiceImpl implements UsuarioService {
 			throw new RegraDeNegocioException("Já existe um usuário cadastrado com este email.");
 		}
 		
+	}
+
+	@Override
+	public Optional<Usuario> obterPorId(Long id) {
+
+		Optional<Usuario> retorno = repository.findById(id);
+		
+		return retorno;
 	}
 
 }
